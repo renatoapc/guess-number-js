@@ -49,6 +49,7 @@ if (!isNaN(intento) && intento >= 1 && intento <= 100 && intento !== numeroSecre
     alert('⚠️ Entrada inválida. El número era ' + numeroSecreto);
   } else if (intento2 === numeroSecreto) {
     alert("🎉 ¡Correcto en tu segundo intento! El número era " + numeroSecreto);
+    console.log("🎉 ¡Correcto en tu segundo intento! El número era " + numeroSecreto)
   } else {
     let pista = intento2 > numeroSecreto ? 'alto' : 'bajo';
     alert(`Muy ${pista}. El número era ${numeroSecreto}`);
@@ -79,6 +80,25 @@ console.log(!lloviendo);
 console.log(18 >= 18 && true);
 
 
+// === CALCULADORA DE DESCUENTOS ===
+
+console.log("=== CALCULADORA DE DESCUENTOS ===")
+
+let precio = Number(prompt("Ingrese el monto total de su compra:"));
+
+
+if (precio > 100) {
+  const descuentoUno = precio * 0.8;
+  alert(`El precio final de su compra es ${descuentoUno}`);
+  console.log(`El precio final de su compra es ${descuentoUno}`);
+} else if (precio >= 50) {
+  const descuentoDos = precio * 0.9;
+  alert(`El precio final de su compra es ${descuentoDos}`);
+  console.log(`El precio final de su compra es ${descuentoDos}`);
+} else {
+  alert(`El precio final de su compra es ${precio}`);
+  console.log(`El precio final de su compra es ${precio}`);
+};
 
 
 

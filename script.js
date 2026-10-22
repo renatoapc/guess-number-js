@@ -1,57 +1,19 @@
-let nombre = 'Renato';
-let edad = 28;
-let estaAprendiendo = true;
+console.log('=== Adivina el número ===');
 
-console.log(nombre);
-console.log(edad);
-console.log(estaAprendiendo);
+const numeroSecreto = Math.floor(Math.random()* 100) + 1;
 
-console.log(typeof nombre);
-console.log(typeof edad);
-console.log(typeof estaAprendiendo);
+console.log('(DEBUG) Número secreto:', numeroSecreto);
 
 
+let intento = prompt('Adivina el número (1-100):');
+intento = Number(intento);
 
-const curso = 'Code 101';
-const maxIntentos = 10;
-
-console.log(curso);
-console.log(maxIntentos);
-
+console.log('Intento del jugador:', intento);
+console.log('Tipo:', typeof intento);
 
 
-let nombreUsuario = prompt('¿Cómo te llamas?');
-let edadUsuario = prompt('¿Cuál es tu edad?');
-
-alert(`Hola ${nombreUsuario}, tienes ${edadUsuario} años.`)
-
-console.log('Nombre:', nombreUsuario, typeof nombreUsuario);
-console.log('Edad:', edadUsuario, typeof edadUsuario);
-
-
-
-let a = 20;
-let b = 7;
-
-console.log('Suma:', a + b);
-console.log('Resta:', a - b);
-console.log('Multiplicación:', a * b);
-console.log('División:', a / b);
-console.log('Residuo:', a % b);
-
-console.log('5' + 3);
-console.log(5 + 3);
-console.log('5' - 3);
-
-let saludo1 = 'Hola ' + nombreUsuario + ', tienes ' + edadUsuario + ' años.';
-console.log(saludo1);
-
-let saludo2 = `Hola ${nombreUsuario}, tienes ${edadUsuario} años.`;
-console.log(saludo2);
-
-
-let anioActual = 2026;
-let anioNacimiento = anioActual - edadUsuario;
-
-let saludo3 = `Hola ${nombreUsuario}, naciste aproximadamente en ${anioNacimiento}.`;
-console.log(saludo3);
+if (intento === numeroSecreto) {
+    alert('🎉 ¡Correcto! El número era ' + numeroSecreto);
+} else {
+    alert('❌ Incorrecto. El número era ' + numeroSecreto);
+}

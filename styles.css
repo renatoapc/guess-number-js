@@ -1,109 +1,235 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --night: #100b1d;
+  --plum: #211332;
+  --orange: #ff8a24;
+  --orange-bright: #ffad42;
+  --green: #9be564;
+  --cream: #fff2d7;
+  --muted: #c2b7ca;
+}
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #eee;
-  padding: 20px;
+  padding: 24px;
+  overflow-x: hidden;
+  color: var(--cream);
+  font-family: "Segoe UI", Arial, sans-serif;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -8px;
+  z-index: -2;
+  background: url("./img/image.png") center / cover no-repeat;
+  filter: blur(4px);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(11, 9, 28, 0.4);
+  pointer-events: none;
 }
 
 .game-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(233, 69, 96, 0.3);
-  border-radius: 20px;
-  padding: 40px 30px;
-  max-width: 420px;
+  position: relative;
+  z-index: 0;
   width: 100%;
+  max-width: 440px;
+  padding: 42px 34px 36px;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.5s, box-shadow 0.5s;
+  border: 1px solid rgba(255, 138, 36, 0.4);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.95),
+    0 0 0 2px rgba(255, 173, 66, 0.55),
+    0 0 38px rgba(255, 138, 36, 0.35);
+  background: linear-gradient(
+    155deg,
+    rgba(42, 27, 57, 0.96),
+    rgba(20, 14, 31, 0.97)
+  );
+  transition:
+    border-color 0.35s,
+    box-shadow 0.35s,
+    transform 0.35s;
+}
+
+.game-card::before {
+  content: "☾";
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  color: rgba(255, 173, 66, 0.22);
+  font-size: 42px;
+  line-height: 1;
 }
 
 h1 {
-  color: #e94560;
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: var(--orange-bright);
+  font-size: clamp(1.65rem, 6vw, 2rem);
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 22px rgba(255, 138, 36, 0.22);
 }
 
 .subtitle {
-  color: #aaa;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .controls {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 input {
+  width: 112px;
   padding: 12px;
-  font-size: 18px;
-  width: 100px;
-  text-align: center;
-  border: 2px solid rgba(233, 69, 96, 0.4);
+  border: 2px solid rgba(255, 138, 36, 0.42);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #eee;
   outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  background: rgba(10, 8, 17, 0.66);
+  color: var(--cream);
+  font: inherit;
+  font-size: 18px;
+  text-align: center;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
 }
+
+input::placeholder {
+  color: #81758d;
+}
+
 input:focus {
-  border-color: #e94560;
-  box-shadow: 0 0 12px rgba(233, 69, 96, 0.3);
+  border-color: var(--orange-bright);
+  background: rgba(10, 8, 17, 0.9);
+  box-shadow: 0 0 0 4px rgba(255, 138, 36, 0.14);
 }
-/* Ocultar flechas del input numérico */
+
 input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button { -webkit-appearance: none; }
-input[type=number] { -moz-appearance: textfield; }
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 button {
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #e94560;
-  color: white;
-  border: none;
+  padding: 12px 22px;
+  border: 1px solid rgba(255, 204, 134, 0.25);
   border-radius: 12px;
+  background: linear-gradient(135deg, #ff982e, #e85d1b);
+  box-shadow: 0 7px 18px rgba(232, 93, 27, 0.2);
+  color: #21101a;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  transition:
+    transform 0.18s,
+    filter 0.2s,
+    box-shadow 0.2s;
 }
+
+#btnAdivinar, #btnPista {
+  font-family: 'Creepster', cursive;
+  font-size: 20px;
+}
+
+
 button:hover {
-  background-color: #d63d56;
   transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 24px rgba(232, 93, 27, 0.3);
 }
-button:active { transform: translateY(1px); }
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+  filter: none;
 }
 
 #mensaje {
-  font-size: 24px;
-  margin: 20px 0;
   min-height: 40px;
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: 650;
   transition: font-size 0.3s;
 }
 
+#contador {
+  color: var(--green);
+  font-weight: 600;
+}
+
 #historial {
-  margin-top: 20px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  color: var(--muted);
   font-size: 14px;
-  color: #aaa;
+  overflow-wrap: anywhere;
 }
 
 #btnReiniciar {
-  background-color: #0f3460;
-  margin-top: 12px;
+  margin-top: 18px;
+  background: linear-gradient(135deg, #7c51a3, #50316e);
+  box-shadow: 0 7px 18px rgba(80, 49, 110, 0.28);
+  color: #fff4df;
 }
 
-@media (max-width: 480px) {
-  .game-card { padding: 30px 20px; }
-  .controls { flex-direction: column; align-items: center; }
-  input { width: 80%; }
-  button { width: 80%; }
+#btnReiniciar:hover {
+  box-shadow: 0 10px 24px rgba(124, 81, 163, 0.35);
 }
+
+
+@media (max-width: 480px) {
+  .game-card {
+    padding: 36px 22px 30px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input,
+  .controls button {
+    width: min(100%, 260px);
+  }
+}
+
